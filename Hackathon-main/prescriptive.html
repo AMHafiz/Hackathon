@@ -2,121 +2,208 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prescriptive Authority</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 font-sans min-h-screen flex flex-col">
 
   <main class="flex-grow">
-  <!-- Header -->
-  <header class="bg-white shadow-md">
-    <div class="container mx-auto flex justify-between items-center py-4 px-6">
-      <div class="flex items-center space-x-3">
-        <a href="hackathon.html" class="text-[#F26450] hover:text-[#d94e3b] font-medium text-sm flex items-center space-x-1">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed top-0 left-0 w-full z-50">
+      <div class="container mx-auto flex justify-between items-center py-4 px-6">
+        <div class="flex items-center space-x-3">
+          <a href="hackathon.html" class="text-[#F26450] hover:text-[#d94e3b] font-medium text-sm flex items-center space-x-1">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+            <span>Back</span>
+          </a>
+          <img src="logo.png" alt="Action Canada Logo" class="h-8 w-8 ml-4">
+          <div>
+            <h1 class="text-xl font-semibold text-[#F26450]">Action Canada</h1>
+            <span class="text-gray-800 text-sm font-medium">for Sexual Health & Rights</span>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <button class="bg-[#F26450] hover:bg-[#e45742] text-white font-semibold px-4 py-2 rounded-lg transition">Donate</button>
+          <a href="#" class="text-[#F26450] hover:underline font-medium">Your Sexual Health</a>
+          <a href="#" class="text-[#F26450] hover:underline font-medium">Find Services</a>
+          <button class="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded-lg transition">Get Out Quickly</button>
+          <span class="ml-2 text-sm font-bold text-black">French</span>
+          <svg class="w-5 h-5 text-gray-600 hover:text-gray-800 cursor-pointer" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M16 10a6 6 0 1 0-12 0 6 6 0 0 0 12 0z"/>
           </svg>
-          <span>Back</span>
-        </a>
-        <img src="logo.png" alt="Action Canada Logo" class="h-8 w-8 ml-4">
-        <div>
-          <h1 class="text-xl font-semibold text-[#F26450]">Action Canada</h1>
-          <span class="text-gray-800 text-sm font-medium">for Sexual Health & Rights</span>
         </div>
       </div>
-      <div class="flex items-center space-x-4">
-        <button class="bg-[#F26450] hover:bg-[#e45742] text-white font-semibold px-4 py-2 rounded-lg transition">Donate</button>
-        <a href="#" class="text-[#F26450] hover:underline font-medium">Your Sexual Health</a>
-        <a href="#" class="text-[#F26450] hover:underline font-medium">Find Services</a>
-        <button class="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded-lg transition">Get Out Quickly</button>
-        <span class="ml-2 text-sm font-bold text-black">French</span>
-        <svg class="w-5 h-5 text-gray-600 hover:text-gray-800 cursor-pointer" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M21 21l-4.35-4.35M16 10a6 6 0 1 0-12 0 6 6 0 0 0 12 0z"/>
-        </svg>
+      <nav class="bg-[#fff4f2] border-t border-[#f9d4cc]">
+        <div class="container mx-auto px-6 py-3 flex justify-center space-x-8 text-gray-700 font-medium text-base">
+          <a href="#" class="hover:text-[#F26450] transition">About Us</a>
+          <a href="#" class="hover:text-[#F26450] transition">Resources</a>
+          <a href="#" class="hover:text-[#F26450] transition">What's New</a>
+          <a href="#" class="hover:text-[#F26450] transition">Global Work</a>
+          <a href="#" class="hover:text-[#F26450] transition">Take Action</a>
+          <a href="#" class="hover:text-[#F26450] transition">Campaigns</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-[#F26450] text-white py-10 mt-32">
+      <div class="container mx-auto text-center px-6">
+        <h2 class="text-5xl font- tracking-wide leading-tight">Prescriptive Authority</h2>
+      </div>
+    </section>
+
+    <!-- Province Cards Section -->
+    <div class="max-w-6xl mx-auto px-6 mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 text-left" id="province-cards">
+      <!-- Cards will be dynamically generated here -->
+    </div>
+
+    <!-- Other Providers Section -->
+    <div class="max-w-6xl mx-auto px-6 mt-16">
+      <hr class="border-gray-300 mb-6">
+      <button 
+        class="w-full bg-[#F26450] text-white text-2xl font-bold py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#F26450] transition"
+        onclick="toggleDropdown('other-providers')">
+        Other Healthcare Service Providers
+      </button>
+      <div id="other-providers" class="hidden mt-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+         <div class="bg-white rounded-xl shadow-lg p-6 min-h-[28rem] flex flex-col justify-start">
+           <h4 class="text-xl font-semibold text-rose-600 mb-4 text-center">Midwife</h4>
+            <p class="text-gray-600 text-center">Midwives provide expert care during pregnancy, childbirth, and postpartum, including reproductive and sexual health services.</p>
+          </div>
+          <div class="bg-white rounded-xl shadow-lg p-6 min-h-[28rem] flex flex-col justify-start">
+            <h4 class="text-xl font-semibold text-rose-600 mb-4 text-center">Nurse Practitioner</h4>
+            <ul class="text-gray-600 text-left space-y-3">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-[#F26450] flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>Conduct Advanced Health Assessment and Diagnosis - Restricted in Quebec, available in all 11 provinces/territories.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-[#F26450] flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>Order and Interpret Diagnostic Tests - Restricted in Newfoundland & Labrador, Ontario, and Saskatchewan; available in 8 out of 11 provinces/territories.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-[#F26450] flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>Consult with and refer to other Health Care Professionals - Available in all 11 provinces/territories.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-[#F26450] flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>Roster and Manage Patients - Restricted in Quebec and Ontario. Not applicable in N.W.T. and Nunavut. Available in 8 out of 11 provinces/territories.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-[#F26450] flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>Prescribe Pharmacotherapy - Restricted in Alberta; available in 10 out of 11 provinces/territories.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-[#F26450] flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>Prescribe Controlled Substances - Restricted in New Brunswick, Quebec, and Alberta; available in 8 out of 11 provinces/territories.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-[#F26450] flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>Prescribe Medical Supplies - Restricted in Ontario and Saskatchewan; available in 9 out of 11 provinces/territories.</span>
+              
+          </div>
+        </div>
       </div>
     </div>
-    <nav class="bg-[#fff4f2] border-t border-[#f9d4cc]">
-      <div class="container mx-auto px-6 py-3 flex justify-center space-x-8 text-gray-700 font-medium text-base">
-        <a href="#" class="hover:text-[#F26450] transition">About Us</a>
-        <a href="#" class="hover:text-[#F26450] transition">Resources</a>
-        <a href="#" class="hover:text-[#F26450] transition">What's New</a>
-        <a href="#" class="hover:text-[#F26450] transition">Global Work</a>
-        <a href="#" class="hover:text-[#F26450] transition">Take Action</a>
-        <a href="#" class="hover:text-[#F26450] transition">Campaigns</a>
+  </main>
+
+  <script>
+    const provinces = [
+      {
+        id: 'ontario',
+        name: 'Ontario',
+        description: `
+          <ul>
+            <li>Can initiate a prescription for:</li>
+            <ul class="ml-8 list-disc">
+              <li>Minor ailments/conditions</li>
+              <li>Smoking/tobacco cessation</li>
+              <li>Emergencies</li>
+            </ul>
+            <li>Can manage/adapt prescriptions:</li>
+            <ul class="ml-8 list-disc">
+              <li>Change drug dosage, formulation, regimen, etc.</li>
+              <li>Renew/extend prescriptions for continuity of care</li>
+            </ul>
+          </ul>
+        `
+      },
+      {
+        id: 'bc',
+        name: 'British Columbia',
+        description: "British Columbia (BC) is located on the west coast and is famous for its stunning natural beauty, from mountains to the Pacific Ocean. Its major city, Vancouver, is known for its diversity and outdoor lifestyle."
+      },
+      {
+        id: 'nunavut',
+        name: 'Nunavut',
+        description: "Nunavut is Canada's largest and northernmost territory. It is sparsely populated and primarily inhabited by Inuit communities. It offers dramatic Arctic landscapes and a unique cultural heritage."
+      },
+      {
+        id: 'quebec',
+        name: 'Quebec',
+        description: "Quebec is the only Canadian province with a predominantly French-speaking population. Known for its vibrant culture and history, it includes cities like Montreal and Quebec City."
+      },
+      {
+        id: 'alberta',
+        name: 'Alberta',
+        description: "Alberta is a province known for its natural beauty including the Rocky Mountains and Banff National Park. It also has a strong energy sector and vibrant cities like Calgary and Edmonton."
+      }
+    ];
+
+    const provinceCardsContainer = document.getElementById('province-cards');
+
+    provinces.forEach(province => {
+      const card = document.createElement('div');
+      card.className = 'col-span-1';
+      card.innerHTML = `
+        <div class="bg-white shadow-lg rounded-xl p-4 cursor-pointer transition-all duration-300" onclick="toggleCard('${province.id}')">
+          <h2 class="text-xl font-semibold mb-2">${province.name}</h2>
+          <div id="${province.id}" class="hidden text-gray-700">${province.description}</div>
+        </div>
+      `;
+      provinceCardsContainer.appendChild(card);
+    });
+
+    function toggleCard(id) {
+      const card = document.getElementById(id);
+      card.classList.toggle('hidden');
+    }
+
+    function toggleDropdown(id) {
+      const dropdown = document.getElementById(id);
+      dropdown.classList.toggle('hidden');
+    }
+  </script>
+
+  <!-- Footer -->
+  <footer class="bg-[#fff4f2] text-center text-gray-700 text-sm py-6 border-t border-[#f9d4cc] mt-16">
+    <div class="container mx-auto px-4">
+      &copy; 2025 Action Canada for Sexual Health & Rights. All Rights Reserved.
+      <div class="mt-2">
+        <a href="#" class="text-[#F26450] hover:underline mx-2">Privacy Policy</a>
+        <a href="#" class="text-[#F26450] hover:underline mx-2">Terms of Use</a>
+        <a href="#" class="text-[#F26450] hover:underline mx-2">Contact Us</a>
       </div>
-    </nav>
-  </header>
-
-  <!-- Title Section -->
-  <section class="bg-[#F26450] text-white py-10">
-    <div class="container mx-auto text-center px-6">
-      <h2 class="text-5xl font- tracking-wide leading-tight">Information Card</h2>
     </div>
-  </section>
+  </footer>
 
-  <!-- Province Cards Section -->
-<div class="max-w-6xl mx-auto px-6 mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
-  <!-- Card Component -->
-  <div class="col-span-1">
-    <div class="bg-white shadow-lg rounded-xl p-4 cursor-pointer transition-all duration-300" onclick="toggleCard('ontario')">
-      <h2 class="text-xl font-semibold mb-2">Ontario</h2>
-        <div id="ontario" class="hidden text-gray-700">
-        <ul>
-          Can Initiate a prescription for
-          <li>For minor ailments/conditions</li>
-          <li>Smoking/tabacoo cessation</li>
-          <li>An emergency</li>
-          Can Manage/Adapt prescriptions
-          <li>Change drug dosage, formulation, regimen, etc.</li>
-          <li>Renew/extend prescription for continuity of care</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-span-1">
-    <div class="bg-white shadow-lg rounded-xl p-4 cursor-pointer transition-all duration-300" onclick="toggleCard('bc')">
-      <h2 class="text-xl font-semibold mb-2">British Columbia</h2>
-      <p id="bc" class="hidden text-gray-700">British Columbia (BC) is located on the west coast and is famous for its stunning natural beauty, from mountains to the Pacific Ocean. Its major city, Vancouver, is known for its diversity and outdoor lifestyle.</p>
-    </div>
-  </div>
-
-  <div class="col-span-2 sm:col-span-2">
-    <div class="bg-white shadow-lg rounded-xl p-4 cursor-pointer transition-all duration-300" onclick="toggleCard('nunavut')">
-      <h2 class="text-xl font-semibold mb-2">Nunavut</h2>
-      <p id="nunavut" class="hidden text-gray-700">Nunavut is Canada's largest and northernmost territory. It is sparsely populated and primarily inhabited by Inuit communities. It offers dramatic Arctic landscapes and a unique cultural heritage.</p>
-    </div>
-  </div>
-
-  <div class="col-span-1">
-    <div class="bg-white shadow-lg rounded-xl p-4 cursor-pointer transition-all duration-300" onclick="toggleCard('quebec')">
-      <h2 class="text-xl font-semibold mb-2">Quebec</h2>
-      <p id="quebec" class="hidden text-gray-700">Quebec is the only Canadian province with a predominantly French-speaking population. Known for its vibrant culture and history, it includes cities like Montreal and Quebec City.</p>
-    </div>
-  </div>
-
-  <div class="col-span-1">
-    <div class="bg-white shadow-lg rounded-xl p-4 cursor-pointer transition-all duration-300" onclick="toggleCard('alberta')">
-      <h2 class="text-xl font-semibold mb-2">Alberta</h2>
-      <p id="alberta" class="hidden text-gray-700">Alberta is a province known for its natural beauty including the Rocky Mountains and Banff National Park. It also has a strong energy sector and vibrant cities like Calgary and Edmonton.</p>
-    </div>
-  </div>
-</div>
-
-</main>
- <!-- Footer -->
-<footer class="bg-[#fff4f2] text-center text-gray-700 text-sm py-6 border-t border-[#f9d4cc]">
-  <div class="container mx-auto px-4">
-    &copy; 2025 Action Canada for Sexual Health & Rights. All Rights Reserved.
-  </div>
-</footer>
 </body>
-
-<script>
-  function toggleCard(id) {
-    const card = document.getElementById(id);
-    card.classList.toggle("hidden");
-  }
-</script>
-
 </html>
