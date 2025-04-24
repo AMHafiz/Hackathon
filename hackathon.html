@@ -4,29 +4,6 @@
   <meta charset="UTF-8">
   <title>Action Canada</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .flip-card {
-      perspective: 1000px;
-    }
-    .flip-card-inner {
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-    }
-    .flip-card.flipped .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-    .flip-card-front, .flip-card-back {
-      backface-visibility: hidden;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-    .flip-card-back {
-      transform: rotateY(180deg);
-    }
-  </style>
 </head>
 <body class="bg-gray-50 font-sans">
 
@@ -55,7 +32,7 @@
       </div>
 
       <!-- Action Buttons -->
-      <div class="flex flex-wrap justify-center gap-4">
+      <div class="flex flex-wrap justify-center gap-4 pt-2">
         <button class="bg-rose-500 hover:bg-rose-600 text-white px-4 py-2 rounded-xl shadow">
           Donate
         </button>
@@ -85,24 +62,32 @@
 
   <!-- Interactive Card Section -->
   <div class="max-w-6xl mx-auto px-6 mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
-    <div class="flip-card cursor-pointer relative h-48" onclick="location.href='#map';" ondblclick="this.classList.toggle('flipped')">
-      <div class="flip-card-inner bg-white rounded-xl shadow-lg p-6 relative">
-        <div class="flip-card-front flex items-center justify-center h-full text-xl font-semibold text-rose-600">Prescriptive Authority</div>
-        <div class="flip-card-back bg-rose-100 rounded-xl flex items-center justify-center h-full text-lg text-gray-700">More about Prescriptive Authority</div>
-      </div>
+    <div class="bg-white rounded-xl shadow-lg p-6 h-64 flex flex-col justify-center cursor-pointer" onclick="location.href='#map';">
+      <h4 class="text-xl font-semibold text-rose-600 mb-2 text-center">Prescriptive Authority</h4>
+      <p class="text-gray-600 text-center">Information about prescribing rights and scope of practice.</p>
     </div>
-
-    <div class="flip-card cursor-pointer relative h-48" onclick="location.href='#map';" ondblclick="this.classList.toggle('flipped')">
-      <div class="flip-card-inner bg-white rounded-xl shadow-lg p-6 relative">
-        <div class="flip-card-front flex items-center justify-center h-full text-xl font-semibold text-rose-600">Injection Authority</div>
-        <div class="flip-card-back bg-rose-100 rounded-xl flex items-center justify-center h-full text-lg text-gray-700">More about Injection Authority</div>
-      </div>
+    <div class="bg-white rounded-xl shadow-lg p-6 h-64 flex flex-col justify-center cursor-pointer" onclick="location.href='#map';">
+      <h4 class="text-xl font-semibold text-rose-600 mb-2 text-center">Injection Authority</h4>
+      <p class="text-gray-600 text-center">Details about who can administer injections and under what circumstances.</p>
     </div>
+    <div class="bg-white rounded-xl shadow-lg p-6 h-64 flex flex-col justify-center cursor-pointer" onclick="location.href='#map';">
+      <h4 class="text-xl font-semibold text-rose-600 mb-2 text-center">Lab Tests</h4>
+      <p class="text-gray-600 text-center">Overview of lab testing capabilities and regulations.</p>
+    </div>
+  </div>
 
-    <div class="flip-card cursor-pointer relative h-48" onclick="location.href='#map';" ondblclick="this.classList.toggle('flipped')">
-      <div class="flip-card-inner bg-white rounded-xl shadow-lg p-6 relative">
-        <div class="flip-card-front flex items-center justify-center h-full text-xl font-semibold text-rose-600">Lab Tests</div>
-        <div class="flip-card-back bg-rose-100 rounded-xl flex items-center justify-center h-full text-lg text-gray-700">More about Lab Tests</div>
+  <!-- Other Providers Section -->
+  <div class="max-w-6xl mx-auto px-6 mt-16">
+    <hr class="border-gray-300 mb-6">
+    <h3 class="text-2xl font-bold text-gray-800 text-center mb-6">Other Healthcare Service Providers</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div class="bg-white rounded-xl shadow-lg p-6 h-64 flex flex-col justify-center">
+        <h4 class="text-xl font-semibold text-rose-600 mb-2 text-center">Midwife</h4>
+        <p class="text-gray-600 text-center">Midwives provide expert care during pregnancy, childbirth, and postpartum, including reproductive and sexual health services.</p>
+      </div>
+      <div class="bg-white rounded-xl shadow-lg p-6 h-64 flex flex-col justify-center">
+        <h4 class="text-xl font-semibold text-rose-600 mb-2 text-center">Nurse Practitioner</h4>
+        <p class="text-gray-600 text-center">Nurse practitioners diagnose and manage illnesses, prescribe medications, and provide a wide range of health care services including sexual health.</p>
       </div>
     </div>
   </div>
