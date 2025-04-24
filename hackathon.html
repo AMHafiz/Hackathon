@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Action Canada</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .flip-card {
+      perspective: 1000px;
+    }
+    .flip-card-inner {
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      backface-visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .flip-card-back {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans">
+
+  <!-- Header Section -->
+  <header class="bg-gradient-to-r from-rose-100 to-rose-300 py-12 px-6 text-center shadow-md">
+    <div class="max-w-5xl mx-auto">
+      <h1 class="text-4xl md:text-6xl font-extrabold text-gray-800 leading-tight">
+        Action Canada <br>
+        <span class="text-rose-600">for Sexual Health & Rights</span>
+      </h1>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="bg-white shadow-md py-6 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col items-center space-y-4">
+
+      <!-- Main Nav Links -->
+      <div class="flex flex-wrap justify-center gap-8 text-md font-medium text-gray-700">
+        <a href="#" class="hover:text-rose-600 transition">About Us</a>
+        <a href="#" class="hover:text-rose-600 transition">Resources</a>
+        <a href="#" class="hover:text-rose-600 transition">What’s New</a>
+        <a href="#" class="hover:text-rose-600 transition">Global Work</a>
+        <a href="#" class="hover:text-rose-600 transition">Take Action</a>
+        <a href="#" class="hover:text-rose-600 transition">Campaigns</a>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-wrap justify-center gap-4">
+        <button class="bg-rose-500 hover:bg-rose-600 text-white px-4 py-2 rounded-xl shadow">
+          Donate
+        </button>
+        <button class="bg-white border border-rose-500 text-rose-500 px-4 py-2 rounded-xl hover:bg-rose-50 transition">
+          Your Sexual Health
+        </button>
+        <button class="bg-white border border-rose-500 text-rose-500 px-4 py-2 rounded-xl hover:bg-rose-50 transition">
+          Find Services
+        </button>
+        <button class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-xl">
+          Get Out Quickly
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <div class="max-w-6xl mx-auto px-6 mt-6 text-sm text-gray-600">
+    <a href="#" class="hover:underline">Home</a> / <a href="#" class="hover:underline">Resources</a>
+  </div>
+
+  <!-- Page Title -->
+  <div class="max-w-6xl mx-auto px-6 mt-4 text-center">
+    <h2 class="text-3xl font-bold text-gray-800">Sexual Health Information Hub</h2>
+  </div>
+
+  <!-- Interactive Card Section -->
+  <div class="max-w-6xl mx-auto px-6 mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6">
+    <div class="flip-card cursor-pointer relative h-48" onclick="location.href='#map';" ondblclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner bg-white rounded-xl shadow-lg p-6 relative">
+        <div class="flip-card-front flex items-center justify-center h-full text-xl font-semibold text-rose-600">Prescriptive Authority</div>
+        <div class="flip-card-back bg-rose-100 rounded-xl flex items-center justify-center h-full text-lg text-gray-700">More about Prescriptive Authority</div>
+      </div>
+    </div>
+
+    <div class="flip-card cursor-pointer relative h-48" onclick="location.href='#map';" ondblclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner bg-white rounded-xl shadow-lg p-6 relative">
+        <div class="flip-card-front flex items-center justify-center h-full text-xl font-semibold text-rose-600">Injection Authority</div>
+        <div class="flip-card-back bg-rose-100 rounded-xl flex items-center justify-center h-full text-lg text-gray-700">More about Injection Authority</div>
+      </div>
+    </div>
+
+    <div class="flip-card cursor-pointer relative h-48" onclick="location.href='#map';" ondblclick="this.classList.toggle('flipped')">
+      <div class="flip-card-inner bg-white rounded-xl shadow-lg p-6 relative">
+        <div class="flip-card-front flex items-center justify-center h-full text-xl font-semibold text-rose-600">Lab Tests</div>
+        <div class="flip-card-back bg-rose-100 rounded-xl flex items-center justify-center h-full text-lg text-gray-700">More about Lab Tests</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Canada Map Section -->
+  <div id="map" class="max-w-6xl mx-auto px-6 mt-10">
+    <img src="map.jpg" 
+         alt="Map of Canada" 
+         class="w-full rounded-lg shadow-md border border-rose-100">
+  </div>
+
+</body>
+</html>
