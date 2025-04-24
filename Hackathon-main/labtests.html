@@ -5,8 +5,9 @@
   <title>Prescriptive Authority</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 font-sans">
+<body class="bg-gray-50 font-sans min-h-screen flex flex-col">
 
+  <main class="flex-grow">
   <!-- Header -->
   <header class="bg-white shadow-md">
     <div class="container mx-auto flex justify-between items-center py-4 px-6">
@@ -49,21 +50,63 @@
   <!-- Title Section -->
   <section class="bg-[#F26450] text-white py-10">
     <div class="container mx-auto text-center px-6">
-      <h2 class="text-5xl font- tracking-wide leading-tight">Information Map</h2>
+      <h2 class="text-5xl font- tracking-wide leading-tight">Information Card</h2>
     </div>
   </section>
 
-  <!-- Map Section -->
-  <div class="max-w-6xl mx-auto px-6 mt-10 text-center">
-    <img src="map.jpg" alt="Map of Canada" class="mx-auto rounded-xl shadow-lg">
+  <!-- Province Cards Section -->
+<div class="max-w-6xl mx-auto px-6 mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6 text-left">
+  <!-- Card Component -->
+  <div class="col-span-1">
+    <div class="bg-white shadow-lg rounded-xl p-4 cursor-pointer transition-all duration-300" onclick="toggleCard('ontario')">
+      <h2 class="text-xl font-semibold mb-2">Ontario</h2>
+      <p id="ontario" class="hidden text-gray-700">Ontario is Canada's most populous province, home to the nation's capital Ottawa and the largest city, Toronto. It's known for its diverse culture, major economic influence, and natural landmarks like Niagara Falls.</p>
+    </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="bg-[#fff4f2] text-center text-gray-700 text-sm py-6 mt-16 border-t border-[#f9d4cc]">
-    <div class="container mx-auto px-4">
-      &copy; 2025 Action Canada for Sexual Health & Rights. All Rights Reserved.
+  <div class="col-span-1">
+    <div class="bg-white shadow-lg rounded-xl p-4 cursor-pointer transition-all duration-300" onclick="toggleCard('bc')">
+      <h2 class="text-xl font-semibold mb-2">British Columbia</h2>
+      <p id="bc" class="hidden text-gray-700">British Columbia (BC) is located on the west coast and is famous for its stunning natural beauty, from mountains to the Pacific Ocean. Its major city, Vancouver, is known for its diversity and outdoor lifestyle.</p>
     </div>
-  </footer>
+  </div>
 
+  <div class="col-span-2 sm:col-span-2">
+    <div class="bg-white shadow-lg rounded-xl p-4 cursor-pointer transition-all duration-300" onclick="toggleCard('nunavut')">
+      <h2 class="text-xl font-semibold mb-2">Nunavut</h2>
+      <p id="nunavut" class="hidden text-gray-700">Nunavut is Canada's largest and northernmost territory. It is sparsely populated and primarily inhabited by Inuit communities. It offers dramatic Arctic landscapes and a unique cultural heritage.</p>
+    </div>
+  </div>
+
+  <div class="col-span-1">
+    <div class="bg-white shadow-lg rounded-xl p-4 cursor-pointer transition-all duration-300" onclick="toggleCard('quebec')">
+      <h2 class="text-xl font-semibold mb-2">Quebec</h2>
+      <p id="quebec" class="hidden text-gray-700">Quebec is the only Canadian province with a predominantly French-speaking population. Known for its vibrant culture and history, it includes cities like Montreal and Quebec City.</p>
+    </div>
+  </div>
+
+  <div class="col-span-1">
+    <div class="bg-white shadow-lg rounded-xl p-4 cursor-pointer transition-all duration-300" onclick="toggleCard('alberta')">
+      <h2 class="text-xl font-semibold mb-2">Alberta</h2>
+      <p id="alberta" class="hidden text-gray-700">Alberta is a province known for its natural beauty including the Rocky Mountains and Banff National Park. It also has a strong energy sector and vibrant cities like Calgary and Edmonton.</p>
+    </div>
+  </div>
+</div>
+
+</main>
+ <!-- Footer -->
+<footer class="bg-[#fff4f2] text-center text-gray-700 text-sm py-6 border-t border-[#f9d4cc]">
+  <div class="container mx-auto px-4">
+    &copy; 2025 Action Canada for Sexual Health & Rights. All Rights Reserved.
+  </div>
+</footer>
 </body>
+
+<script>
+  function toggleCard(id) {
+    const card = document.getElementById(id);
+    card.classList.toggle("hidden");
+  }
+</script>
+
 </html>
