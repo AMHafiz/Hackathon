@@ -187,7 +187,7 @@
       card.innerHTML = `
         <div class="bg-white shadow-lg rounded-xl p-4 cursor-pointer transition-all duration-300" onclick="toggleCard('${province.id}')">
           <h2 class="text-xl font-semibold mb-2">${province.name}</h2>
-          <p id="${province.id}" class="hidden text-gray-700">${province.description}</p>
+          <div id="${province.id}" class="hidden text-gray-700">${province.description}</div>
         </div>
       `;
       provinceCardsContainer.appendChild(card);
