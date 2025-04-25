@@ -145,7 +145,7 @@
     
       let firstLocationSet = false;
     
-      addresses.forEach(({ name, address }) => {
+      addresses.forEach(({ name, address, description }) => {
         geocoder.geocode({ address }, (results, status) => {
           if (status === "OK") {
             const location = results[0].geometry.location;
@@ -161,11 +161,12 @@
               map,
               position: location,
               title: name,
+              description: description
             });
             markers.push(marker);
     
             const li = document.createElement("li");
-            li.innerHTML = `<strong>${name}</strong> - ${address}`;
+            li.innerHTML = `<strong>${name}</strong> - ${address} <br/> ${description}`;
             li.onclick = () => {
               map.setCenter(location);
               map.setZoom(15);
@@ -189,7 +190,7 @@
         }
           </script>
     <script
-    src="https://maps.googleapis.com/maps/api/js?key=Your_API_KEY&libraries=places,visualization&callback=initMap"
+    src="https://maps.googleapis.com/maps/api/js?key=&libraries=places,visualization&callback=initMap"
     async
     defer
    ></script>
