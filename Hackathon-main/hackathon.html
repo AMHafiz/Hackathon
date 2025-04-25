@@ -5,6 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Action Canada</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    #map {
+      height: 90vh;
+      width: 100%;
+    }
+    #search-input {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 500px;
+        z-index: 10;
+      }
+  </style>
 </head>
 <body class="bg-gray-50 font-sans min-h-screen flex flex-col">
 
@@ -70,7 +85,173 @@
         <p class="text-gray-600 text-center">Overview of lab testing capabilities and regulations.</p>
       </div>
     </div>
-
+    <div class="relative">
+      <!--  Google Search Box -->
+      <input
+        id="search-input"
+        class="border border-gray-300 px-4 py-2 rounded shadow w-full"
+        type="text"
+        placeholder="Search for City"
+      />
+  <!-- Map Section -->
+  <div class="max-w-6xl mx-auto px-6 mt-10 text-center">  
+  
+    <div id="map"></div>
+    <div id="location-list" class="md:w-1/3 w-full p-6 overflow-y-auto border-l border-gray-200 bg-gray-50">
+    <ul id="address-list" class="space-y-2 text-sm text-gray-800"></ul>
+    </div>
+    <body>
+      <script>
+        let map;
+        let geocoder;
+        let markers = [];
+        let pinsShown = false;
+  
+        const torontoAddresses = [
+          { name: "CN Tower", address: "CN Tower, Toronto, ON" },
+          { name: "Yonge-Dundas Square", address: "Yonge and Dundas Square, Toronto, ON" },
+          { name: "Union Station", address: "Union Station, Toronto, ON" }
+        ];
+  
+        function initMap() {
+          map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: 56.1304, lng: -106.3468 },
+            zoom: 4,
+          });
+  
+          geocoder = new google.maps.Geocoder();
+  
+          map.addListener("idle", handleZoomToToronto);
+  
+          const input = document.getElementById("search-input");
+          input.addEventListener("change", () => {
+            const query = input.value;
+            if (query) {
+              geocoder.geocode({ address: query }, (results, status) => {
+                if (status === "OK") {
+                  const location = results[0].geometry.location;
+                  const formattedAddress = results[0].formatted_address;
+  
+                  map.setCenter(location);
+                  map.setZoom(15);
+                  clearMarkers();
+                  clearList();
+  
+                  const marker = new google.maps.Marker({
+                    map,
+                    position: location,
+                    title: query,
+                  });
+                  markers.push(marker);
+  
+                  marker.addListener("click", () => {
+                    const list = document.getElementById("address-list");
+                    list.innerHTML = `
+                      <div class="border border-rose-500 bg-white p-4 rounded shadow">
+                        <h3 class="font-bold text-lg text-rose-600">${query}</h3>
+                        <p class="text-sm text-gray-700">${formattedAddress}</p>
+                      </div>
+                    `;
+                  });
+                } else {
+                  alert("Location not found.");
+                }
+              });
+            }
+          });
+        }
+  
+        function handleZoomToToronto() {
+          const zoom = map.getZoom();
+          const center = map.getCenter();
+          const lat = center.lat();
+          const lng = center.lng();
+  
+          if (zoom >= 12 && lat > 43.5 && lat < 43.8 && lng > -79.6 && lng < -79.2) {
+            if (!pinsShown) {
+              showTorontoPins();
+              pinsShown = true;
+            }
+          } else {
+            clearMarkers();
+            clearList();
+            pinsShown = false;
+          }
+        }
+  
+        function showTorontoPins() {
+          const listEl = document.getElementById("address-list");
+          listEl.innerHTML = "";
+  
+          torontoAddresses.forEach(({ name, address }) => {
+            geocoder.geocode({ address }, (results, status) => {
+              if (status === "OK") {
+                const location = results[0].geometry.location;
+  
+                const marker = new google.maps.Marker({
+                  map,
+                  position: location,
+                  title: name,
+                });
+                markers.push(marker);
+  
+                marker.addListener("click", () => {
+                  const li = document.createElement("li");
+                  listEl.innerHTML = `
+                    <div class="border border-rose-500 bg-white p-4 rounded shadow">
+                      <h3 class="font-bold text-lg text-rose-600">${name}</h3>
+                      <p class="text-sm text-gray-700">${address}</p>
+                    </div>
+                  `;
+                  li.addEventListener("click", () => {
+                  map.setCenter(location);
+                  map.setZoom(15);
+                });
+                listEl.appendChild(li);
+                });
+  
+                const li = document.createElement("li");
+              li.className = "location-item";
+              li.innerHTML = `
+                <div class="border border-gray-300 p-3 rounded hover:bg-white shadow-sm cursor-pointer transition">
+                  <strong>${name}</strong><br/>
+                  <span class="text-gray-500">${address}</span>
+                </div>
+              `;
+  
+              li.addEventListener("click", () => {
+                map.setCenter(location);
+                map.setZoom(15);
+                highlightListItem(index);
+              });
+  
+              marker.addListener("click", () => {
+                map.setCenter(location);
+                map.setZoom(15);
+                highlightListItem(index);
+              });
+  
+              listEl.appendChild(li);
+                    }
+                  });
+                });
+        }
+  
+        function clearMarkers() {
+          markers.forEach((m) => m.setMap(null));
+          markers = [];
+        }
+  
+        function clearList() {
+          document.getElementById("address-list").innerHTML = "";
+        }
+      </script>
+   <script
+   src="https://maps.googleapis.com/maps/api/js?key=Your_API_KEY&libraries=places,visualization&callback=initMap"
+   async
+   defer
+  ></script>
+  </div>
     <!-- Other Providers Section -->
     <div class="max-w-6xl mx-auto px-6 mt-16">
       <hr class="border-gray-300 mb-6">
