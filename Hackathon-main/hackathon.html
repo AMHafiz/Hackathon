@@ -247,10 +247,8 @@
         }
       </script>
    <script
-   src="https://maps.googleapis.com/maps/api/js?key=Your_API_KEY&libraries=places,visualization&callback=initMap"
-   async
-   defer
-  ></script>
+ src="https://maps.googleapis.com/maps/api/js?key=&libraries=places,visualization&callback=initMap" async defer></script>
+  </script>
   </div>
     <!-- Other Providers Section -->
     <div class="max-w-6xl mx-auto px-6 mt-16">
@@ -262,10 +260,53 @@
       </button>
       <div id="other-providers" class="hidden mt-6">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-         <div class="bg-white rounded-xl shadow-lg p-6 min-h-[28rem] flex flex-col justify-start">
-           <h4 class="text-xl font-semibold text-rose-600 mb-4 text-center">Midwife</h4>
-            <p class="text-gray-600 text-center">Midwives provide expert care during pregnancy, childbirth, and postpartum, including reproductive and sexual health services.</p>
-          </div>
+          <div class="bg-white rounded-xl shadow-lg p-6 min-h-[28rem] flex flex-col justify-start">
+            <h4 class="text-xl font-semibold text-rose-600 mb-4 text-center">Midwife</h4>
+            <ul class="text-gray-600 text-left space-y-3">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-[#F26450] flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>Registered Midwifery Regulated - Available in all 13 provinces and territories, though service levels vary by region.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-[#F26450] flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>Indigenous Midwifery - Actively supported in Nunavut and Ontario; developing or limited access in other provinces/territories.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-[#F26450] flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>Support for Racialized Midwives - Available nationwide through the Canadian Alliance of Racialized Midwives (CARM).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-[#F26450] flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>Choice of Birthplace - Midwives can support home, hospital, or birth centre births; some remote areas may have limited options.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-[#F26450] flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>Postnatal Home Visits - Available across all regulated areas; service intensity may vary by region and staffing levels.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-[#F26450] flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>24/7 On-Call Availability - Standard in midwifery models nationwide; varies slightly in rural and remote regions.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-[#F26450] flex-shrink-0 mt-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <span>Informed Choice and Collaborative Care - Available across all provinces and territories; guided by national midwifery standards.</span>
+              </li>
+            </ul>
+          </div>          
           <div class="bg-white rounded-xl shadow-lg p-6 min-h-[28rem] flex flex-col justify-start">
             <h4 class="text-xl font-semibold text-rose-600 mb-4 text-center">Nurse Practitioner</h4>
             <ul class="text-gray-600 text-left space-y-3">
