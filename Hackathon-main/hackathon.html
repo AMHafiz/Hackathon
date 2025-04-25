@@ -137,7 +137,9 @@
     
       const addresses = city === "toronto" ? torontoAddresses :
                         city === "vancouver" ? vancouverAddresses : 
-                        city === "montreal" ? montrealAddresses: [];
+                        city === "montreal" ? montrealAddresses: 
+                        city === "halifax" ? halifaxAddresses:
+                        city === "ottawa" ? ottawaAddresses: [];
     
       if (addresses.length === 0) return;
     
