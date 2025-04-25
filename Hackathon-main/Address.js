@@ -1,20 +1,61 @@
 const torontoAddresses = [
-    { name: "Sunnybrook Health Sciences Centre", address: "Sunnybrook Health Sciences Centre, North York, ON" },
-    { name: "Toronto General Hospital (TGH)", address: "Toronto General Hospital (TGH), Toronto, ON" },
-    { name: "The Hospital for Sick Children (SickKids)", address: "UThe Hospital for Sick Children (SickKids), Toronto, ON" }
+
+   {
+    name: "Sunnybrook Health Sciences Centre",
+    address: "Sunnybrook Health Sciences Centre, North York, ON",
+    description: "Specialized in trauma, cancer, and cardiovascular care."
+  },
+  {
+    name: "Toronto General Hospital (TGH)",
+    address: "Toronto General Hospital (TGH), Toronto, ON",
+    description: "Renowned for organ transplant and cardiac care."
+  },
+  {
+    name: "The Hospital for Sick Children (SickKids)",
+    address: "The Hospital for Sick Children (SickKids), Toronto, ON",
+    description: "Famous for pediatric and genetic disorder care."
+  }
   ];
 
   const vancouverAddresses = [
-    { name: "Vancouver General Hospital (VGH)", address: "Vancouver General Hospital (VGH), Vancouver, BC" },
-    { name: "St. Paul's Hospital", address: "St. Paul's Hospital, Vancouver, BC" },
-    { name: "Lions Gate Hospital", address: "Lions Gate Hospital, Vancouver, BC" }
+    {
+        name: "Vancouver General Hospital (VGH)",
+        address: "Vancouver General Hospital (VGH), Vancouver, BC",
+        description: "Known for trauma, neurology, and cancer care."
+      },
+      {
+        name: "St. Paul's Hospital",
+        address: "St. Paul's Hospital, Vancouver, BC",
+        description: "Specialized in heart and lung care."
+      },
+      {
+        name: "Lions Gate Hospital",
+        address: "Lions Gate Hospital, Vancouver, BC",
+        description: "Focuses on orthopedic and mental health care."
+      }
   ];
 
   const montrealAddresses = [
-    { name: "McGill University Health Centre (MUHC)", address: "McGill University Health Centre (MUHC), Montreal, QC" },
-    { name: "Montreal General Hospital", address: "Montreal General Hospital, Montreal, QC" },
-    { name: "Royal Victoria Hospital", address: "Royal Victoria Hospital, Montreal, QC" },
-    { name: "Centre hospitalier de l’Université de Montréal (CHUM)", address: "Centre hospitalier de l’Université de Montréal (CHUM), Montreal, QC" }
+    {
+        name: "McGill University Health Centre (MUHC)",
+        address: "McGill University Health Centre (MUHC), Montreal, QC",
+        description: "Specialized in academic and critical care."
+      },
+      {
+        name: "Montreal General Hospital",
+        address: "Montreal General Hospital, Montreal, QC",
+        description: "Known for trauma and surgical care."
+      },
+      {
+        name: "Royal Victoria Hospital",
+        address: "Royal Victoria Hospital, Montreal, QC",
+        description: "Focused on cancer and women's health care."
+      },
+      {
+        name: "Centre hospitalier de l’Université de Montréal (CHUM)",
+        address: "Centre hospitalier de l’Université de Montréal (CHUM), Montreal, QC",
+        description: "Offers advanced specialized care in all fields."
+      }
   ]
   const calgaryAddresses = [
     { name: "Foothills Medical Centre", address: "Foothills Medical Centre, Calgary, AB" },
